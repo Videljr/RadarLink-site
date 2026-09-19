@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09111f">
+  <meta name="description" content="RadarLink reúne produtos, preços e ofertas de diferentes lojas para ajudar você a comparar melhor antes de comprar.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="RadarLink — Compare melhor. Escolha com clareza.">
+  <meta property="og:description" content="Produtos, preços e ofertas de diferentes lojas em um só lugar.">
+  <meta property="og:url" content="https://videljr.github.io/RadarLink-site/">
+  <link rel="canonical" href="https://videljr.github.io/RadarLink-site/">
+  <title>RadarLink — Compare melhor. Escolha com clareza.</title>
+  <style>
+    :root {
+      --bg: #07101d;
+      --bg-soft: #0b1728;
+      --card: rgba(14, 30, 49, .76);
+      --line: rgba(155, 185, 220, .14);
+      --text: #f6f9fd;
+      --muted: #a7b6ca;
+      --blue: #42a5ff;
+      --cyan: #41e7d7;
+      --violet: #8f78ff;
+      --max: 1160px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 74% 8%, rgba(65, 231, 215, .10), transparent 29rem),
+        radial-gradient(circle at 13% 18%, rgba(66, 165, 255, .13), transparent 31rem),
+        var(--bg);
+      font: 400 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .skip-link {
+      position: fixed;
+      top: -100px;
+      left: 16px;
+      z-index: 100;
+      padding: 10px 14px;
+      color: #07101d;
+      background: var(--cyan);
+      border-radius: 10px;
+      font-weight: 800;
+    }
+    .skip-link:focus { top: 16px; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      border-bottom: 1px solid transparent;
+      background: rgba(7, 16, 29, .72);
+      backdrop-filter: blur(18px);
+      transition: border-color .2s ease;
+    }
+    header.scrolled { border-color: var(--line); }
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      text-decoration: none;
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+    .brand-mark { width: 34px; height: 34px; }
+    .brand-mark circle, .brand-mark path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 650;
+      transition: color .2s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--text); }
+    .nav-cta {
+      padding: 10px 16px;
+      color: var(--text) !important;
+      border: 1px solid rgba(65, 231, 215, .34);
+      border-radius: 999px;
+      background: rgba(65, 231, 215, .07);
+    }
+    .menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--text);
+      background: var(--card);
+      font-size: 1.25rem;
+      cursor: pointer;
+    }
+
+    main { overflow: hidden; }
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: grid;
+      align-items: center;
+      padding: 94px 0 84px;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .16;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+      background-size: 58px 58px;
+      mask-image: linear-gradient(to bottom, black, transparent 86%);
+    }
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: clamp(46px, 7vw, 96px);
+    }
+    .eyebrow {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      margin: 0 0 22px;
+      border: 1px solid rgba(66, 165, 255, .25);
+      border-radius: 999px;
+      color: #bbddff;
+      background: rgba(66, 165, 255, .08);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 5px rgba(65, 231, 215, .11);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 730px;
+      margin-bottom: 24px;
+      font-size: clamp(3rem, 6.1vw, 5.4rem);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(110deg, var(--blue), var(--cyan) 55%, #b1a3ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 650px;
+      margin-bottom: 32px;
+      color: var(--muted);
+      font-size: clamp(1.06rem, 1.8vw, 1.24rem);
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; }
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 21px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      text-decoration: none;
+      font-weight: 800;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button-primary {
+      color: #06101d;
+      background: linear-gradient(125deg, var(--cyan), #69baff);
+      box-shadow: 0 12px 30px rgba(65, 231, 215, .16);
+    }
+    .button-secondary {
+      border-color: var(--line);
+      color: var(--text);
+      background: rgba(255,255,255,.025);
+    }
+
+    .radar-stage {
+      position: relative;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+    .radar-glow {
+      position: absolute;
+      width: 78%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: rgba(65, 231, 215, .10);
+      filter: blur(52px);
+    }
+    .radar {
+      position: relative;
+      width: min(100%, 460px);
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: 1px solid rgba(95, 207, 255, .26);
+      border-radius: 50%;
+      background:
+        linear-gradient(rgba(88, 180, 232, .10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(88, 180, 232, .10) 1px, transparent 1px),
+        repeating-radial-gradient(circle, transparent 0 23%, rgba(97, 193, 246, .18) 23.3% 23.8%, transparent 24.1% 47%);
+      background-size: 50% 50%, 50% 50%, 100% 100%;
+      box-shadow: inset 0 0 80px rgba(48, 148, 255, .10), var(--shadow);
+    }
+    .radar::after {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: conic-gradient(from 40deg, transparent 0deg 270deg, rgba(65, 231, 215, .07) 310deg, rgba(65, 231, 215, .58) 358deg, transparent 360deg);
+      animation: sweep 5s linear infinite;
+    }
+    .radar-center {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      z-index: 3;
+      width: 13px;
+      height: 13px;
+      border: 3px solid #dbfffb;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 18px var(--cyan);
+      transform: translate(-50%, -50%);
+    }
+    .blip {
+      position: absolute;
+      z-index: 2;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: #a8fff7;
+      box-shadow: 0 0 0 7px rgba(65,231,215,.10), 0 0 20px var(--cyan);
+      animation: blink 2.6s ease-in-out infinite;
+    }
+    .blip.one { left: 28%; top: 32%; }
+    .blip.two { right: 22%; top: 46%; animation-delay: .8s; }
+    .blip.three { left: 44%; bottom: 20%; animation-delay: 1.45s; }
+    .price-chip {
+      position: absolute;
+      z-index: 5;
+      padding: 11px 15px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 13px;
+      color: #eaf8ff;
+      background: rgba(10, 25, 42, .86);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.22);
+      font-size: .82rem;
+      font-weight: 750;
+    }
+    .price-chip strong { display: block; color: var(--cyan); font-size: 1rem; }
+    .chip-one { top: 15%; right: -2%; }
+    .chip-two { bottom: 17%; left: -4%; }
+    @keyframes sweep { to { transform: rotate(360deg); } }
+    @keyframes blink { 50% { opacity: .35; transform: scale(.72); } }
+
+    .section { padding: 102px 0; }
+    .section.alt {
+      border-block: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,.018), rgba(255,255,255,.008));
+    }
+    .section-label {
+      margin-bottom: 12px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h2 {
+      max-width: 760px;
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4.5vw, 3.35rem);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+    .section-intro {
+      max-width: 680px;
+      margin-bottom: 46px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+    .steps, .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 15px 45px rgba(0,0,0,.12);
+    }
+    .step-number {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 42px;
+      border: 1px solid rgba(65,231,215,.26);
+      border-radius: 12px;
+      color: var(--cyan);
+      background: rgba(65,231,215,.07);
+      font-size: .85rem;
+      font-weight: 850;
+    }
+    .card h3 {
+      margin-bottom: 9px;
+      font-size: 1.18rem;
+      letter-spacing: -.025em;
+    }
+    .card p { margin-bottom: 0; color: var(--muted); }
+
+    .preview {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      align-items: center;
+      gap: clamp(40px, 7vw, 86px);
+    }
+    .preview-panel {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      background: rgba(6, 16, 29, .68);
+      box-shadow: var(--shadow);
+    }
+    .window-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 4px 17px;
+    }
+    .window-bar i { width: 8px; height: 8px; border-radius: 50%; background: #334559; }
+    .search-demo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+      border: 1px solid rgba(115,178,229,.16);
+      border-radius: 13px;
+      color: #8599b1;
+      background: #091625;
+      font-size: .88rem;
+    }
+    .demo-row {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      align-items: center;
+      gap: 13px;
+      padding: 13px;
+      margin-top: 8px;
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 14px;
+      background: rgba(255,255,255,.025);
+    }
+    .demo-thumb {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: var(--blue);
+      background: linear-gradient(145deg, rgba(66,165,255,.18), rgba(143,120,255,.10));
+      font-size: 1.35rem;
+    }
+    .demo-info { min-width: 0; }
+    .demo-info b, .demo-info small { display: block; }
+    .demo-info b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .84rem; }
+    .demo-info small { color: #7f91a8; font-size: .7rem; }
+    .demo-price { color: var(--cyan); font-size: .9rem; font-weight: 850; }
+    .check-list { padding: 0; margin: 26px 0 0; list-style: none; }
+    .check-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin: 15px 0;
+      color: var(--muted);
+    }
+    .check {
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      margin-top: 2px;
+      border-radius: 50%;
+      color: #06101d;
+      background: var(--cyan);
+      font-size: .72rem;
+      font-weight: 900;
+    }
+
+    .benefit-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 26px;
+      border: 1px solid rgba(143,120,255,.26);
+      border-radius: 14px;
+      color: #b8adff;
+      background: rgba(143,120,255,.08);
+      font-size: 1.2rem;
+    }
+
+    .closing {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(42px, 7vw, 72px);
+      border: 1px solid rgba(65,231,215,.18);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(65,231,215,.13), transparent 19rem),
+        linear-gradient(135deg, rgba(66,165,255,.08), rgba(143,120,255,.05));
+    }
+    .closing::after {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      right: -130px;
+      bottom: -190px;
+      border: 1px solid rgba(65,231,215,.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 42px rgba(65,231,215,.035), 0 0 0 90px rgba(65,231,215,.02);
+    }
+    .closing p { max-width: 620px; color: var(--muted); }
+    .status-note {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 15px;
+      color: #c4d5e7;
+      font-size: .88rem;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 34px 0;
+      border-top: 1px solid var(--line);
+      color: #8293a7;
+      font-size: .82rem;
+    }
+    .footer-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a:hover { color: var(--text); }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 880px) {
+      .hero { min-height: auto; padding-top: 74px; }
+      .hero-grid, .preview { grid-template-columns: 1fr; }
+      .radar-stage { width: min(88vw, 460px); margin: 0 auto; }
+      .steps, .benefits { grid-template-columns: 1fr; }
+      .step-number { margin-bottom: 25px; }
+      .menu-button { display: grid; place-items: center; }
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        left: 20px;
+        right: 20px;
+        display: none;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #0b1728;
+        box-shadow: var(--shadow);
+      }
+      .nav-links.open { display: grid; }
+      .nav-cta { text-align: center; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      nav { min-height: 68px; }
+      .hero { padding: 58px 0 70px; }
+      h1 { font-size: clamp(2.65rem, 14vw, 4.1rem); }
+      .button { width: 100%; }
+      .price-chip { display: none; }
+      .section { padding: 76px 0; }
+      .card { padding: 23px; }
+      .closing { padding: 32px 24px; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header id="header">
+    <nav class="container" aria-label="Navegação principal">
+      <a class="brand" href="#inicio" aria-label="RadarLink — início">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="17" stroke="#42a5ff" stroke-width="2"/>
+          <circle cx="20" cy="20" r="10" stroke="#41e7d7" stroke-width="2" opacity=".72"/>
+          <circle cx="20" cy="20" r="3" fill="#41e7d7"/>
+          <path d="M20 20 31 9" stroke="#f6f9fd" stroke-width="2.3"/>
+        </svg>
+        <span>RadarLink</span>
+      </a>
+
+      <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menu" aria-controls="navLinks" aria-expanded="false">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#como-funciona">Como funciona</a></li>
+        <li><a href="#proposta">Nossa proposta</a></li>
+        <li><a href="#transparencia">Transparência</a></li>
+        <li><a class="nav-cta" href="#novidades">Acompanhar projeto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow"><span class="pulse"></span> Plataforma em desenvolvimento</p>
+          <h1>Compare melhor.<br><span class="gradient-text">Escolha com clareza.</span></h1>
+          <p>O RadarLink está sendo criado para reunir produtos, preços e ofertas de diferentes lojas em uma experiência simples, transparente e útil.</p>
+          <div class="actions">
+            <a class="button button-primary" href="#como-funciona">Conheça a proposta <span aria-hidden="true">→</span></a>
+            <a class="button button-secondary" href="#transparencia">Como nos mantemos</a>
+          </div>
+        </div>
+
+        <div class="radar-stage reveal" aria-label="Ilustração de um radar localizando ofertas">
+          <div class="radar-glow"></div>
+          <div class="radar" aria-hidden="true">
+            <span class="radar-center"></span>
+            <span class="blip one"></span>
+            <span class="blip two"></span>
+            <span class="blip three"></span>
+          </div>
+          <div class="price-chip chip-one" aria-hidden="true">Oferta encontrada<strong>Melhor custo-benefício</strong></div>
+          <div class="price-chip chip-two" aria-hidden="true">Comparação simples<strong>Mais clareza na escolha</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="como-funciona">
+      <div class="container">
+        <p class="section-label reveal">Como vai funcionar</p>
+        <h2 class="reveal">Da pesquisa à loja, sem complicação.</h2>
+        <p class="section-intro reveal">A proposta do RadarLink é tornar mais fácil comparar alternativas e seguir para a loja escolhida com segurança.</p>
+
+        <div class="steps">
+          <article class="card reveal">
+            <span class="step-number">01</span>
+            <h3>Pesquise</h3>
+            <p>Encontre produtos por nome, categoria ou característica, em uma busca direta e organizada.</p>
+          </article>
+          <article class="card reveal">
+            <span class="step-number">02</span>
+            <h3>Compare</h3>
+            <p>Veja preços e informações relevantes de diferentes ofertas em uma mesma experiência.</p>
+          </article>
+          <article class="card reveal">
+            <span class="step-number">03</span>
+            <h3>Escolha</h3>
+            <p>Acesse a loja responsável pela oferta para conferir as condições e concluir a compra.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proposta">
+      <div class="container preview">
+        <div class="preview-panel reveal" aria-label="Prévia conceitual da comparação de ofertas">
+          <div class="window-bar" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="search-demo"><span aria-hidden="true">⌕</span> Buscar produto ou categoria</div>
+          <div class="demo-row">
+            <span class="demo-thumb" aria-hidden="true">◇</span>
+            <span class="demo-info"><b>Oferta em loja parceira</b><small>Preço e condições da loja</small></span>
+            <span class="demo-price">Comparar</span>
+          </div>
+          <div class="demo-row">
+            <span class="demo-thumb" aria-hidden="true">○</span>
+            <span class="demo-info"><b>Outra opção disponível</b><small>Informações organizadas</small></span>
+            <span class="demo-price">Analisar</span>
+          </div>
+          <div class="demo-row">
+            <span class="demo-thumb" aria-hidden="true">□</span>
+            <span class="demo-info"><b>Alternativa relacionada</b><small>Acesso direto à loja</small></span>
+            <span class="demo-price">Visitar</span>
+          </div>
+        </div>
+
+        <div>
+          <p class="section-label reveal">Nossa proposta</p>
+          <h2 class="reveal">Menos ruído. Mais contexto para decidir.</h2>
+          <p class="section-intro reveal">O RadarLink nasce para facilitar a descoberta de boas opções sem esconder quem vende ou para onde o usuário será direcionado.</p>
+          <ul class="check-list reveal">
+            <li><span class="check">✓</span><span>Comparações organizadas e fáceis de entender.</span></li>
+            <li><span class="check">✓</span><span>Identificação clara da loja responsável pela venda.</span></li>
+            <li><span class="check">✓</span><span>Links diretos para consultar preço, disponibilidade e condições atuais.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="transparencia">
+      <div class="container">
+        <p class="section-label reveal">Compromissos</p>
+        <h2 class="reveal">Transparência faz parte do produto.</h2>
+        <p class="section-intro reveal">Queremos construir uma experiência útil para o usuário e responsável na relação com lojas e parceiros.</p>
+
+        <div class="benefits">
+          <article class="card reveal">
+            <span class="benefit-icon" aria-hidden="true">↗</span>
+            <h3>Destino identificado</h3>
+            <p>Antes de seguir uma oferta, o usuário saberá que será encaminhado para o site da loja.</p>
+          </article>
+          <article class="card reveal">
+            <span class="benefit-icon" aria-hidden="true">◎</span>
+            <h3>Dados atualizados</h3>
+            <p>Preços e disponibilidade podem mudar. A condição válida será sempre a apresentada pela loja no momento da compra.</p>
+          </article>
+          <article class="card reveal">
+            <span class="benefit-icon" aria-hidden="true">◇</span>
+            <h3>Relação transparente</h3>
+            <p>Alguns links poderão gerar comissão ao RadarLink, sem custo adicional para quem compra.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="novidades">
+      <div class="container">
+        <div class="closing reveal">
+          <p class="section-label">Em construção</p>
+          <h2>O radar está sendo calibrado.</h2>
+          <p>Estamos preparando a primeira versão da plataforma, estruturando integrações e selecionando parceiros para entregar comparações relevantes desde o início.</p>
+          <span class="status-note"><span class="pulse"></span> Novidades serão publicadas nesta página.</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> RadarLink. Todos os direitos reservados.</span>
+      <div class="footer-links">
+        <a href="privacidade.html">Privacidade</a>
+        <a href="https://github.com/Videljr/RadarLink-site" rel="noopener noreferrer">Projeto no GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector('#header');
+    const menuButton = document.querySelector('#menuButton');
+    const navLinks = document.querySelector('#navLinks');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelector('#year').textContent = new Date().getFullYear();
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 8);
+    }, { passive: true });
+
+    menuButton.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      menuButton.textContent = open ? '×' : '☰';
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Abrir menu');
+      menuButton.textContent = '☰';
+    }));
+
+    if (reducedMotion) {
+      document.querySelectorAll('.reveal').forEach(item => item.classList.add('visible'));
+    } else {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .12 });
+      document.querySelectorAll('.reveal').forEach(item => observer.observe(item));
+    }
+  </script>
+</body>
+</html>
