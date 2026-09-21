@@ -434,6 +434,26 @@
       font-weight: 900;
     }
 
+    .channels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .channel-icon {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 26px;
+      border: 1px solid rgba(66,165,255,.28);
+      border-radius: 14px;
+      color: #bde3ff;
+      background: rgba(66,165,255,.08);
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .03em;
+    }
+
     .benefit-icon {
       width: 46px;
       height: 46px;
@@ -501,7 +521,7 @@
       .hero { min-height: auto; padding-top: 74px; }
       .hero-grid, .preview { grid-template-columns: 1fr; }
       .radar-stage { width: min(88vw, 460px); margin: 0 auto; }
-      .steps, .benefits { grid-template-columns: 1fr; }
+      .steps, .benefits, .channels { grid-template-columns: 1fr; }
       .step-number { margin-bottom: 25px; }
       .menu-button { display: grid; place-items: center; }
       .nav-links {
@@ -559,6 +579,7 @@
         <li><a href="#como-funciona">Como funciona</a></li>
         <li><a href="#proposta">Nossa proposta</a></li>
         <li><a href="#transparencia">Transparência</a></li>
+        <li><a href="#canais">Canais</a></li>
         <li><a class="nav-cta" href="#novidades">Acompanhar projeto</a></li>
       </ul>
     </nav>
@@ -678,7 +699,38 @@
       </div>
     </section>
 
-    <section class="section" id="novidades">
+    <section class="section" id="canais">
+      <div class="container">
+        <p class="section-label reveal">Canais de indicação</p>
+        <h2 class="reveal">Boas oportunidades, no canal que fizer mais sentido para você.</h2>
+        <p class="section-intro reveal">Além da plataforma, o RadarLink levará indicações selecionadas para canais oficiais e dedicados no WhatsApp, Telegram, Facebook e Instagram. Cada espaço terá uma comunicação própria, pensada para tornar a descoberta de produtos e ofertas mais prática no dia a dia.</p>
+
+        <div class="channels">
+          <article class="card reveal">
+            <span class="channel-icon" aria-hidden="true">WA</span>
+            <h3>WhatsApp</h3>
+            <p>Alertas objetivos para acompanhar oportunidades e receber indicações de forma rápida e direta.</p>
+          </article>
+          <article class="card reveal">
+            <span class="channel-icon" aria-hidden="true">TG</span>
+            <h3>Telegram</h3>
+            <p>Um canal dedicado para reunir ofertas, atualizações e recomendações em uma linha do tempo fácil de acompanhar.</p>
+          </article>
+          <article class="card reveal">
+            <span class="channel-icon" aria-hidden="true">FB</span>
+            <h3>Facebook</h3>
+            <p>Conteúdos e indicações compartilhados em um espaço voltado à troca de informações e descoberta de alternativas.</p>
+          </article>
+          <article class="card reveal">
+            <span class="channel-icon" aria-hidden="true">IG</span>
+            <h3>Instagram</h3>
+            <p>Seleções visuais de produtos e oportunidades para acompanhar novidades de maneira leve e organizada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="novidades">
       <div class="container">
         <div class="closing reveal">
           <p class="section-label">Em construção</p>
