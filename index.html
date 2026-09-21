@@ -450,10 +450,123 @@
       background: color-mix(in srgb, currentColor 10%, transparent);
     }
     .channel-icon svg { width: 22px; height: 22px; fill: currentColor; }
-    .channel-whatsapp,
-    .channel-telegram,
-    .channel-facebook,
-    .channel-instagram { color: #e21b2d; }
+    .channel-whatsapp { color: #25D366; }
+    .channel-telegram { color: #26A5E4; }
+    .channel-facebook { color: #1877F2; }
+    .channel-instagram {
+      color: #ffffff;
+      border-color: transparent;
+      background: linear-gradient(135deg, #833AB4, #FD1D1D 55%, #FCAF45);
+    }
+
+    .telegram-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, .82fr) 1.18fr;
+      align-items: center;
+      gap: clamp(34px, 6vw, 80px);
+      margin-top: 56px;
+    }
+    .telegram-phone {
+      overflow: hidden;
+      border: 9px solid #22262c;
+      border-radius: 30px;
+      background: #dbe4ed;
+      box-shadow: 0 22px 46px rgba(34, 38, 44, .18);
+    }
+    .tg-status {
+      height: 22px;
+      background: #22262c;
+    }
+    .tg-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      color: #ffffff;
+      background: #2AABEE;
+    }
+    .tg-arrow { font-size: 1.2rem; }
+    .tg-avatar {
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #2AABEE;
+      background: #ffffff;
+      font-size: .76rem;
+      font-weight: 900;
+    }
+    .tg-header b, .tg-header small { display: block; line-height: 1.18; }
+    .tg-header small { opacity: .78; font-size: .68rem; }
+    .tg-menu { margin-left: auto; font-size: 1.15rem; }
+    .tg-chat {
+      min-height: 390px;
+      padding: 22px 14px;
+      background:
+        linear-gradient(30deg, rgba(255,255,255,.38) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,.38) 87.5%, rgba(255,255,255,.38)),
+        linear-gradient(150deg, rgba(255,255,255,.30) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,.30) 87.5%, rgba(255,255,255,.30)),
+        #dce6ef;
+      background-size: 28px 49px;
+    }
+    .tg-date {
+      width: fit-content;
+      margin: 0 auto 16px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      color: #5e6b75;
+      background: rgba(255,255,255,.72);
+      font-size: .67rem;
+      font-weight: 700;
+    }
+    .tg-message {
+      max-width: 92%;
+      padding: 13px;
+      border-radius: 13px 13px 13px 3px;
+      color: #26333d;
+      background: #ffffff;
+      box-shadow: 0 3px 10px rgba(39, 57, 70, .12);
+    }
+    .tg-message p { margin: 8px 0 11px; color: #53616c; font-size: .78rem; line-height: 1.45; }
+    .tg-message h3 { margin: 0; font-size: .92rem; }
+    .tg-link-card {
+      overflow: hidden;
+      border: 1px solid #d8e0e7;
+      border-radius: 10px;
+      background: #f7f9fb;
+    }
+    .tg-link-image {
+      height: 102px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      color: #ffffff;
+      background: linear-gradient(135deg, #444b53, #8d959d);
+      font-size: 2.1rem;
+    }
+    .tg-link-image::after {
+      content: "PRODUTO";
+      position: absolute;
+      right: 10px;
+      bottom: 9px;
+      padding: 3px 7px;
+      border-radius: 5px;
+      background: rgba(0,0,0,.46);
+      font-size: .56rem;
+      font-weight: 850;
+      letter-spacing: .08em;
+    }
+    .tg-link-body { padding: 10px; }
+    .tg-domain { color: #2AABEE; font-size: .64rem; font-weight: 800; text-transform: uppercase; }
+    .tg-link-title { margin-top: 2px; font-size: .78rem; font-weight: 800; }
+    .tg-link-copy { margin-top: 4px; color: #687783; font-size: .67rem; line-height: 1.35; }
+    .tg-link-action { margin-top: 8px; color: #2AABEE; font-size: .72rem; font-weight: 850; }
+    .tg-meta { display: block; margin-top: 8px; color: #93a0aa; font-size: .63rem; text-align: right; }
+    .telegram-copy .check-list { margin-top: 20px; }
+    @media (max-width: 880px) {
+      .telegram-layout { grid-template-columns: 1fr; }
+      .telegram-phone { width: min(100%, 390px); margin-inline: auto; }
+    }
 
     .benefit-icon {
       width: 46px;
@@ -591,8 +704,8 @@
       <div class="container hero-grid">
         <div class="hero-copy reveal">
           <p class="eyebrow"><span class="pulse"></span> Parcerias de afiliação em estruturação</p>
-          <h1>O radar que prepara<br><span class="gradient-text">marcas para serem encontradas.</span></h1>
-          <p>O RadarLink é uma operação de curadoria e distribuição social para programas de afiliados. Transformamos informações e links rastreáveis fornecidos por parceiros em indicações preparadas para canais próprios no WhatsApp, Telegram, Facebook e Instagram.</p>
+          <h1>Links de produtos,<br><span class="gradient-text">no canal certo.</span></h1>
+          <p>O RadarLink é um canal independente de afiliação: utiliza links rastreáveis disponibilizados por programas parceiros e os leva até o público pelos seus canais sociais. Não fala em nome das marcas, não as representa e não participa da venda.</p>
           <div class="actions">
             <a class="button button-primary" href="#modelo">Conheça o modelo <span aria-hidden="true">→</span></a>
             <a class="button button-secondary" href="#parceiros">Para empresas parceiras</a>
@@ -607,8 +720,8 @@
             <span class="blip two"></span>
             <span class="blip three"></span>
           </div>
-          <div class="price-chip chip-one" aria-hidden="true">Parceria em estruturação<strong>Afiliação e rastreio</strong></div>
-          <div class="price-chip chip-two" aria-hidden="true">Canais planejados<strong>Distribuição social</strong></div>
+          <div class="price-chip chip-one" aria-hidden="true">Link rastreável<strong>Origem identificada</strong></div>
+          <div class="price-chip chip-two" aria-hidden="true">Canal independente<strong>Distribuição social</strong></div>
         </div>
       </div>
     </section>
@@ -617,23 +730,23 @@
       <div class="container">
         <p class="section-label reveal">Modelo de operação</p>
         <h2 class="reveal">Da integração à distribuição social.</h2>
-        <p class="section-intro reveal">O RadarLink trabalha nos bastidores da parceria: estrutura referências, revisa informações e prepara a comunicação que será distribuída exclusivamente nos canais sociais oficiais, quando estiverem ativos.</p>
+        <p class="section-intro reveal">O RadarLink recebe links e materiais autorizados pelos programas de afiliados, revisa o contexto mínimo de publicação e os distribui pelos próprios canais sociais. A comunicação não é feita como porta-voz ou representante da empresa parceira.</p>
 
         <div class="steps">
           <article class="card reveal">
             <span class="step-number">01</span>
             <h3>Integre</h3>
-            <p>Conecta programas que disponibilizam links rastreáveis, feeds de produtos ou outros materiais autorizados para afiliação.</p>
+            <p>Utiliza programas que disponibilizam links rastreáveis, feeds de produtos ou outros materiais autorizados para afiliação.</p>
           </article>
           <article class="card reveal">
             <span class="step-number">02</span>
             <h3>Estruture</h3>
-            <p>Organiza condições, destinos e contexto de cada indicação antes que ela seja transformada em conteúdo.</p>
+            <p>Confere o destino e o contexto básico de cada link antes de transformá-lo em conteúdo de indicação.</p>
           </article>
           <article class="card reveal">
             <span class="step-number">03</span>
             <h3>Distribua</h3>
-            <p>Publica as indicações em canais próprios de WhatsApp, Telegram, Facebook e Instagram — nunca como vitrine de vendas neste site.</p>
+            <p>Publica os links de produto em canais próprios de WhatsApp, Telegram, Facebook e Instagram — nunca como vitrine de vendas neste site.</p>
           </article>
         </div>
       </div>
@@ -663,12 +776,12 @@
 
         <div>
           <p class="section-label reveal">Nossa proposta</p>
-          <h2 class="reveal">Distribuir bem sem confundir os papéis.</h2>
-          <p class="section-intro reveal">O RadarLink apoia a comunicação de ofertas e produtos de parceiros, mas não se torna vendedor, intermediador de pagamento ou canal de atendimento pós-venda.</p>
+          <h2 class="reveal">Distribuir links sem representar empresas.</h2>
+          <p class="section-intro reveal">O RadarLink é um distribuidor independente de links afiliados. Ele ajuda o produto a chegar ao público interessado, mas não se torna vendedor, representante comercial, intermediador de pagamento ou canal de atendimento da marca.</p>
           <ul class="check-list reveal">
-            <li><span class="check">✓</span><span>A empresa parceira mantém integralmente sua marca, sua loja e sua relação comercial com o comprador.</span></li>
-            <li><span class="check">✓</span><span>Os links compartilhados usam a estrutura de atribuição definida pelo programa de afiliados.</span></li>
-            <li><span class="check">✓</span><span>O RadarLink atua na curadoria e na distribuição editorial pelos canais sociais próprios.</span></li>
+            <li><span class="check">✓</span><span>A empresa parceira mantém integralmente sua marca, sua comunicação oficial e sua relação comercial com o comprador.</span></li>
+            <li><span class="check">✓</span><span>O link encaminha o público diretamente à página do produto da empresa, usando a estrutura de atribuição do programa de afiliados.</span></li>
+            <li><span class="check">✓</span><span>O RadarLink apresenta o produto como uma indicação independente, sem se identificar como representante da marca.</span></li>
           </ul>
         </div>
       </div>
@@ -678,23 +791,23 @@
       <div class="container">
         <p class="section-label reveal">Para parceiros</p>
         <h2 class="reveal">O que uma empresa encontra no RadarLink.</h2>
-        <p class="section-intro reveal">Uma estrutura pensada para representar parceiros com clareza, preservar o destino da venda e preparar uma distribuição social responsável.</p>
+        <p class="section-intro reveal">Uma estrutura independente para levar links de produto ao público, preservar o destino da venda e manter clara a ausência de representação comercial da marca.</p>
 
         <div class="benefits">
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">↗</span>
-            <h3>Presença editorial</h3>
-            <p>Produtos e ofertas podem ser apresentados em conteúdos adequados ao formato e ao contexto de cada canal social.</p>
+            <h3>Canal independente</h3>
+            <p>Os produtos são apresentados como indicações do RadarLink, em formatos adequados a cada canal social e sem atuação em nome da marca.</p>
           </article>
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">◎</span>
             <h3>Rastreio de origem</h3>
-            <p>A operação é desenhada para utilizar links, feeds e parâmetros disponibilizados pelos próprios programas parceiros.</p>
+            <p>A operação utiliza links, feeds e parâmetros disponibilizados pelos próprios programas parceiros para encaminhar cada acesso ao destino correto.</p>
           </article>
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">◇</span>
-            <h3>Relação comercial preservada</h3>
-            <p>Venda, pagamento, entrega, suporte e políticas de compra permanecem sob responsabilidade da empresa anunciante.</p>
+            <h3>Sem representação comercial</h3>
+            <p>O RadarLink não negocia, não presta atendimento e não declara falar pela empresa. Venda, suporte e políticas permanecem com a marca.</p>
           </article>
         </div>
       </div>
@@ -703,55 +816,96 @@
     <section class="section" id="canais">
       <div class="container">
         <p class="section-label reveal">Canais de distribuição</p>
-        <h2 class="reveal">A distribuição acontecerá nas redes sociais, não neste site.</h2>
-        <p class="section-intro reveal">Este é o ponto institucional do RadarLink. As indicações e links de parceiros serão divulgados exclusivamente em canais oficiais, que estão em fase de estruturação e serão anunciados antes do início da operação.</p>
+        <h2 class="reveal">O link do produto chega ao público pelas redes sociais.</h2>
+        <p class="section-intro reveal">Este é o ponto institucional do RadarLink. Cada link de produto será publicado exclusivamente nos canais oficiais, com uma indicação independente e um acesso direto ao destino informado pelo programa de afiliados.</p>
 
         <div class="channels">
           <article class="card reveal">
             <span class="channel-icon channel-whatsapp" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></span>
             <h3>WhatsApp</h3>
-            <p>Canal para alertas diretos e indicações pontuais, sempre com o destino identificado da empresa parceira.</p>
+            <p>Canal para mensagens diretas com uma indicação curta e o link rastreável que leva à página do produto.</p>
           </article>
           <article class="card reveal">
             <span class="channel-icon channel-telegram" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>
             <h3>Telegram</h3>
-            <p>Canal para acompanhar uma linha contínua de indicações, atualizações e conteúdos de parceiros.</p>
+            <p>Canal para acompanhar uma sequência de indicações com prévia do produto, contexto e link de acesso.</p>
           </article>
           <article class="card reveal">
             <span class="channel-icon channel-facebook" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></span>
             <h3>Facebook</h3>
-            <p>Espaço para conteúdos com mais contexto, apresentação de categorias e relacionamento com a comunidade.</p>
+            <p>Espaço para indicações com contexto adicional e links direcionados à página correspondente do produto.</p>
           </article>
           <article class="card reveal">
             <span class="channel-icon channel-instagram" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></span>
             <h3>Instagram</h3>
-            <p>Canal visual para apresentar produtos, novidades e indicações dentro de formatos editoriais curtos.</p>
+            <p>Canal visual para indicações curtas que direcionam o público ao link rastreável do produto.</p>
           </article>
         </div>
       </div>
-    </section>
+
+
+        <div class="telegram-layout reveal" aria-label="Exemplo visual de uma publicação de link no Telegram">
+          <div class="telegram-phone">
+            <div class="tg-status"></div>
+            <div class="tg-header">
+              <span class="tg-arrow" aria-hidden="true">‹</span>
+              <span class="tg-avatar" aria-hidden="true">RL</span>
+              <span><b>RadarLink</b><small>canal</small></span>
+              <span class="tg-menu" aria-hidden="true">⋮</span>
+            </div>
+            <div class="tg-chat">
+              <p class="tg-date">Hoje</p>
+              <article class="tg-message">
+                <span class="section-label">Indicação de produto</span>
+                <h3>Produto em destaque</h3>
+                <p>Confira os detalhes e as condições diretamente no link abaixo.</p>
+                <div class="tg-link-card">
+                  <div class="tg-link-image" aria-hidden="true">⌁</div>
+                  <div class="tg-link-body">
+                    <div class="tg-domain">Página do produto</div>
+                    <div class="tg-link-title">Produto selecionado para indicação</div>
+                    <div class="tg-link-copy">Acesse a página de destino para consultar preço, disponibilidade e condições.</div>
+                    <div class="tg-link-action">Abrir produto ↗</div>
+                  </div>
+                </div>
+                <span class="tg-meta">17:10&nbsp;&nbsp;✓✓</span>
+              </article>
+            </div>
+          </div>
+
+          <div class="telegram-copy">
+            <p class="section-label">Exemplo de publicação</p>
+            <h2>É assim que o link chega ao público no Telegram.</h2>
+            <p class="section-intro">O RadarLink publica uma indicação independente com prévia e link rastreável. Ao tocar em “Abrir produto”, a pessoa é encaminhada diretamente à página indicada pelo programa de afiliados.</p>
+            <ul class="check-list">
+              <li><span class="check">✓</span><span>O link conduz ao destino definido pela própria empresa ou pela rede de afiliação.</span></li>
+              <li><span class="check">✓</span><span>A publicação informa o contexto da indicação, sem apresentar o RadarLink como representante ou porta-voz da marca.</span></li>
+              <li><span class="check">✓</span><span>Preço, pagamento, entrega e atendimento permanecem integralmente no ambiente da empresa responsável.</span></li>
+            </ul>
+          </div>
+        </div>    </section>
 
     <section class="section alt" id="transparencia">
       <div class="container">
         <p class="section-label reveal">Transparência</p>
         <h2 class="reveal">Clareza para cada papel da parceria.</h2>
-        <p class="section-intro reveal">O modelo do RadarLink separa a atividade de curadoria e divulgação da operação comercial conduzida pelo parceiro.</p>
+        <p class="section-intro reveal">O modelo do RadarLink separa a distribuição independente de links da comunicação oficial e da operação comercial conduzida pela empresa parceira.</p>
 
         <div class="benefits">
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">↗</span>
             <h3>Afiliação identificada</h3>
-            <p>Quando aplicável, a publicação deixará claro que a indicação pode utilizar um link de afiliado.</p>
+            <p>Quando aplicável, a publicação deixará claro que a indicação utiliza um link de afiliado do RadarLink.</p>
           </article>
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">◎</span>
-            <h3>Dados do parceiro</h3>
-            <p>Preço, disponibilidade e condições comerciais serão sempre definidos e confirmados pela empresa responsável pela oferta.</p>
+            <h3>Destino do link</h3>
+            <p>Preço, disponibilidade e condições comerciais são definidos pela empresa responsável e conferidos diretamente na página de destino.</p>
           </article>
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">◇</span>
-            <h3>Venda com a marca</h3>
-            <p>O acesso do público segue para o ambiente da empresa parceira, que permanece responsável pela transação e pelo atendimento.</p>
+            <h3>Sem porta-voz da marca</h3>
+            <p>O acesso segue para o ambiente da empresa parceira; o RadarLink não fala em seu nome nem assume a transação ou o atendimento.</p>
           </article>
         </div>
       </div>
@@ -762,7 +916,7 @@
         <div class="closing reveal">
           <p class="section-label">Parcerias em preparação</p>
           <h2>Estamos estruturando a primeira rede de parceiros.</h2>
-          <p>O RadarLink está definindo integrações, critérios de curadoria e os canais que receberão as indicações. Esta página é o ponto institucional para empresas e programas de afiliados conhecerem o modelo antes do lançamento.</p>
+          <p>O RadarLink está definindo integrações, critérios de publicação e os canais que receberão os links de produto. Esta página apresenta, para empresas e programas de afiliados, um modelo de distribuição independente antes do lançamento.</p>
           <span class="status-note"><span class="pulse"></span> Informações comerciais e canais oficiais serão divulgados aqui.</span>
         </div>
       </div>
