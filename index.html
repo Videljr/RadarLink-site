@@ -580,6 +580,37 @@
       font-size: 1.2rem;
     }
 
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      padding: clamp(30px, 5vw, 52px);
+      border: 1px solid rgba(226, 27, 45, .26);
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(255,255,255,.96), rgba(232,232,232,.76));
+      box-shadow: var(--shadow);
+    }
+    .contact-card h2 { margin-bottom: 10px; }
+    .contact-card p { max-width: 660px; margin-bottom: 0; color: var(--muted); }
+    .contact-email {
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border-radius: 13px;
+      color: #ffffff;
+      background: linear-gradient(125deg, #c91020, var(--cyan), #f24752);
+      box-shadow: 0 12px 30px rgba(226, 27, 45, .18);
+      font-weight: 800;
+      text-decoration: none;
+    }
+    @media (max-width: 620px) {
+      .contact-card { grid-template-columns: 1fr; align-items: start; }
+      .contact-email { width: 100%; font-size: .88rem; }
+    }
+
     .closing {
       position: relative;
       overflow: hidden;
@@ -688,6 +719,7 @@
         <li><a href="#parceiros">Para parceiros</a></li>
         <li><a href="#canais">Canais</a></li>
         <li><a href="#transparencia">Transparência</a></li>
+        <li><a href="#contato">Contato</a></li>
         <li><a class="nav-cta" href="#parcerias">Parcerias</a></li>
       </ul>
     </nav>
@@ -905,6 +937,19 @@
       </div>
     </section>
 
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div>
+            <p class="section-label">Contato</p>
+            <h2>Vamos conversar sobre uma possível parceria.</h2>
+            <p>Para empresas e programas de afiliados interessados em conhecer o modelo de distribuição independente do RadarLink, estamos disponíveis por e-mail.</p>
+          </div>
+          <a class="contact-email" href="mailto:radarlinkprogramadeafiliados@gmail.com">radarlinkprogramadeafiliados@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="parcerias">
       <div class="container">
         <div class="closing reveal">
@@ -921,6 +966,7 @@
     <div class="container footer-row">
       <span>© <span id="year"></span> RadarLink. Operação em estruturação.</span>
       <div class="footer-links">
+        <a href="#contato">Contato</a>
         <a href="privacidade.html">Privacidade e transparência</a>
       </div>
     </div>
