@@ -326,6 +326,8 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
+    .benefits.guidelines { grid-template-columns: repeat(2, 1fr); }
+    @media (max-width: 880px) { .benefits.guidelines { grid-template-columns: 1fr; } }
     .card {
       padding: 28px;
       border: 1px solid var(--line);
@@ -733,7 +735,7 @@
         <div class="hero-copy reveal">
           <p class="eyebrow"><span class="pulse"></span> Parcerias de afiliação em estruturação</p>
           <h1>Links de produtos,<br><span class="gradient-text">no canal certo.</span></h1>
-          <p>O RadarLink é um canal independente de afiliação: utiliza links rastreáveis disponibilizados por programas parceiros e os leva até o público pelos seus canais sociais. Não fala em nome das marcas, não as representa e não participa da venda.</p>
+          <p>O RadarLink distribui links rastreáveis disponibilizados por programas parceiros, exclusivamente pelos seus próprios canais sociais.</p>
           <div class="actions">
             <a class="button button-primary" href="#modelo">Conheça o modelo <span aria-hidden="true">→</span></a>
             <a class="button button-secondary" href="#parceiros">Para empresas parceiras</a>
@@ -758,7 +760,7 @@
       <div class="container">
         <p class="section-label reveal">Modelo de operação</p>
         <h2 class="reveal">Da integração à distribuição social.</h2>
-        <p class="section-intro reveal">O RadarLink recebe links e materiais autorizados pelos programas de afiliados, revisa o contexto mínimo de publicação e os distribui pelos próprios canais sociais. A comunicação não é feita como porta-voz ou representante da empresa parceira.</p>
+        <p class="section-intro reveal">O RadarLink recebe links e materiais autorizados pelos programas de afiliados, revisa o contexto de publicação e os transforma em indicações para seus canais sociais.</p>
 
         <div class="steps">
           <article class="card reveal">
@@ -804,12 +806,12 @@
 
         <div>
           <p class="section-label reveal">Nossa proposta</p>
-          <h2 class="reveal">Distribuir links sem representar empresas.</h2>
+          <h2 class="reveal">O papel do RadarLink é distribuir, não vender.</h2>
           <p class="section-intro reveal">O RadarLink é um distribuidor independente de links afiliados. Ele ajuda o produto a chegar ao público interessado, mas não se torna vendedor, representante comercial, intermediador de pagamento ou canal de atendimento da marca.</p>
           <ul class="check-list reveal">
             <li><span class="check">✓</span><span>A empresa parceira mantém integralmente sua marca, sua comunicação oficial e sua relação comercial com o comprador.</span></li>
             <li><span class="check">✓</span><span>O link encaminha o público diretamente à página do produto da empresa, usando a estrutura de atribuição do programa de afiliados.</span></li>
-            <li><span class="check">✓</span><span>O RadarLink apresenta o produto como uma indicação independente, sem se identificar como representante da marca.</span></li>
+            <li><span class="check">✓</span><span>Este site é institucional: não funciona como catálogo, checkout ou ambiente de vendas.</span></li>
           </ul>
         </div>
       </div>
@@ -819,23 +821,23 @@
       <div class="container">
         <p class="section-label reveal">Para parceiros</p>
         <h2 class="reveal">O que uma empresa encontra no RadarLink.</h2>
-        <p class="section-intro reveal">Uma estrutura independente para levar links de produto ao público, preservar o destino da venda e manter clara a ausência de representação comercial da marca.</p>
+        <p class="section-intro reveal">Um ponto institucional para programas de afiliados entenderem onde e como os links autorizados serão distribuídos.</p>
 
         <div class="benefits">
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">↗</span>
-            <h3>Canal independente</h3>
-            <p>Os produtos são apresentados como indicações do RadarLink, em formatos adequados a cada canal social e sem atuação em nome da marca.</p>
+            <h3>Site institucional</h3>
+            <p>A página apresenta o modelo de operação aos programas parceiros; ela não expõe catálogo, preço ou pedido ao público.</p>
           </article>
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">◎</span>
-            <h3>Rastreio de origem</h3>
-            <p>A operação utiliza links, feeds e parâmetros disponibilizados pelos próprios programas parceiros para encaminhar cada acesso ao destino correto.</p>
+            <h3>Distribuição social</h3>
+            <p>As indicações são preparadas para WhatsApp, Telegram, Facebook e Instagram, nos formatos adequados a cada canal.</p>
           </article>
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">◇</span>
-            <h3>Sem representação comercial</h3>
-            <p>O RadarLink não negocia, não presta atendimento e não declara falar pela empresa. Venda, suporte e políticas permanecem com a marca.</p>
+            <h3>Link autorizado</h3>
+            <p>Os acessos usam links, feeds e parâmetros disponibilizados pelo programa parceiro, preservando o destino definido pela empresa.</p>
           </article>
         </div>
       </div>
@@ -845,7 +847,7 @@
       <div class="container">
         <p class="section-label reveal">Canais de distribuição</p>
         <h2 class="reveal">O link do produto chega ao público pelas redes sociais.</h2>
-        <p class="section-intro reveal">Este é o ponto institucional do RadarLink. Cada link de produto será publicado exclusivamente nos canais oficiais, com uma indicação independente e um acesso direto ao destino informado pelo programa de afiliados.</p>
+        <p class="section-intro reveal">Cada canal recebe o formato de indicação mais adequado para levar o público à página de produto definida pelo programa de afiliados.</p>
 
         <div class="channels">
           <article class="card reveal">
@@ -918,9 +920,9 @@
       <div class="container">
         <p class="section-label reveal">Diretrizes de divulgação</p>
         <h2 class="reveal">Comunicação dentro das regras de cada programa.</h2>
-        <p class="section-intro reveal">O RadarLink só utiliza links, materiais e condições disponibilizados pelos programas de afiliados. A aprovação e as regras específicas de cada parceiro sempre prevalecem.</p>
+        <p class="section-intro reveal">Estas diretrizes orientam cada publicação antes de ela chegar aos canais sociais. As regras específicas de cada programa parceiro sempre prevalecem.</p>
 
-        <div class="benefits">
+        <div class="benefits guidelines">
           <article class="card reveal">
             <span class="benefit-icon" aria-hidden="true">↗</span>
             <h3>Canais autorizados</h3>
@@ -930,11 +932,6 @@
             <span class="benefit-icon" aria-hidden="true">%</span>
             <h3>Ofertas e cupons</h3>
             <p>Cupons só são divulgados quando fornecidos pelo programa. Quando houver preço ou cupom, a publicação incluirá os avisos de estoque ou lote exigidos.</p>
-          </article>
-          <article class="card reveal">
-            <span class="benefit-icon" aria-hidden="true">✓</span>
-            <h3>Comissão validada</h3>
-            <p>Não há garantia de comissão. Cada conversão depende de rastreio, atribuição, pagamento e validação. Em programas que usam last click, a compra precisa ocorrer na mesma sessão do último clique elegível.</p>
           </article>
         </div>
       </div>
